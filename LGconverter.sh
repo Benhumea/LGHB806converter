@@ -53,7 +53,7 @@ i=1
 for video in "${selected_videos[@]}"; do
   #La siguiente linea renombra el archivo de salida a la cadena LGtelevisiony una cadena de 4 caracteres consecutivos
   output_name="$(basename "$video")"
-  ffmpeg -i "$video" -c:v libx264 -crf 20 -preset slow -vf "scale=-2:720,setsar=1" -c:a aac -b:a 128k -ac 2 -loglevel panic "$videos_path/$output_name"
+  ffmpeg -i "$video" -c:v libx264 -crf 20 -preset slow -vf "scale=-2:720,setsar=1" -c:a aac -b:a 128k -ac 2 -loglevel panic -n "$videos_path/$output_name"
   echo "Convertido $output_name"
   ((i++))
 done
